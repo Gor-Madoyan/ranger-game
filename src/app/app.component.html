@@ -1,6 +1,37 @@
 <app-rangers-buttons></app-rangers-buttons>
 
-<button class="btn1" (click) = 'rangerRed()'>Ranger 1</button>
-<button class="btn2" (click) = 'rangerBlue()'>Ranger 2</button>
-<button class="btn2" (click) = 'rangerRed()'>Ranger 3</button>
+<!-- <button class="btn1" (click) = 'rangerRed()'>Ranger 1</button>
+<p>{{ rangerRedInfo }}</p>
+<button class="btn2" (click) = 'rangerFights()'>Ranger 2</button>
+<button class="btn3" (click) = 'fightRedAndBlueRanger() ' >Fight 3</button>
+<button class="btn3" (click) = 'stopFight() ' >stop Fight 4</button> -->
+
+
+
+
+<div class="game-content">
+  <div class="ranger1">
+    <button class="btn1" (click) = 'rangerRed()'>Ranger 1</button>
+   <p>{{ redrangerName }}</p>
+   <p>{{ redrangerpower }}</p>
+    
+  </div>
+
+  <div class="animation-content">
+    <div class="animation" > 
+
+    </div>
+
+    <div class="buttons">
+      <button class="btn3" (click) = 'rangerFights() ' >Fight</button>
+      <button class="btn4" (click) = 'stopFight() ' >Stop Fight </button>
+    </div>
+  </div>
+
+  <div class="ranger2">
+    <button class="btn2" (click) = 'rangerBlue()'>Ranger 2</button>
+    <p>{{ bluerangerName }}</p>
+    <p>{{ bluerangerpower }}</p>
+  </div>
+</div>
 
