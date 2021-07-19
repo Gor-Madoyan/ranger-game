@@ -9,9 +9,10 @@ export class RangersButtonsComponent implements OnInit {
 
   constructor() {}
   ngOnInit(): void {
-  }
+  };
 
- 
+
+   
 }
 
 

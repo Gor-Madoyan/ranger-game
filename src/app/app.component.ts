@@ -1,55 +1,41 @@
 import { Component } from '@angular/core';
-import { fightLogic, Ranger, fights } from "src/app/rangers-buttons/logic"
+import { Ranger } from "src/app/rangers-buttons/logic"
  @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  redrangerName:any;
-  redrangerpower:any;
 
-  bluerangerName:any;
-  bluerangerpower:any;
+  objRangerRed = new Ranger("Ren Ranger");
+  objRangerBlue = new Ranger('Blue Ranger');
 
-  objRangers = new fights("Blue");
 
-  rangerRed(){
-    const redRenger = new Ranger('Red')
-    redRenger.rangersConfiguration()
-    this.redrangerName = redRenger.RedrangerName
-    this.redrangerpower = redRenger.Redrangerpower
-    
-  };
-  rangerBlue(){
-    const bluedRenger = new Ranger('Blue');
-    bluedRenger.rangersConfiguration()
-    this.bluerangerName = bluedRenger.RedrangerName
-    this.bluerangerpower = bluedRenger.Redrangerpower
-  };
+  blueRangerConfig() {
+
+    this.objRangerBlue.rangersConfiguration()
+  }
+  redRangerConfig(){
+    this.objRangerRed.rangersConfiguration()
+  }
 
 rangerFights() {
-  this.objRangers.blueRangerFight()
-  this.objRangers.redRangerFight()
+  this.objRangerRed.rangerFight('Red Ranger')
+  this.objRangerBlue.rangerFight('Blue Ranger')
 };
 
 stopFight() {
   setTimeout(()=>{
-    clearInterval(this.objRangers.timeoutRed);
-    clearInterval(this.objRangers.timeoutBlue);
-
-    if(this.objRangers.redLastNumber < this.objRangers.blueLastNumber) {
-      console.log(`blue won  ${this.objRangers.blueLastNumber}%`);
-
-    }else if(this.objRangers.redLastNumber === this.objRangers.blueLastNumber) {
-
-      console.log('drow');
-    }else  {
-      console.log(`red won ${this.objRangers.redLastNumber}%`);
-    }   
+      this.objRangerRed.finish()
+      this.objRangerBlue.finish()
+      if(this.objRangerBlue.randomLastNumber > this.objRangerRed.randomLastNumber) {
+        console.log('Blue Ranger won');
+      } else if(this.objRangerBlue.randomLastNumber === this.objRangerRed.randomLastNumber) {
+        console.log('drow');
+      }else{
+        console.log('Red Ranger won')
+      }
   }, 3000)
-
 }
 
 }
