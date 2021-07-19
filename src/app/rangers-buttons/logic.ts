@@ -1,4 +1,4 @@
-cdexport class Ranger{
+export class Ranger{
     name:string;
     power:number;
     constructor(name:string) {
